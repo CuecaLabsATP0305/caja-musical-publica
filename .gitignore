@@ -1,0 +1,5 @@
+config_local.json
+secrets/gsq_core_output.json
+claves-a-borrar.txt
+secrets/
+*.log

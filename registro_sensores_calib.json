@@ -1,0 +1,26 @@
+{
+    "auditoria_cientifica": "VALIDADA",
+    "timestamp_inicial": 1793070007.429798,
+    "sensores_activos": {
+        "SEN-REDOX-SN2-NX1": {
+            "parametro": "Delta_G",
+            "calibracion": "-5.0 kcal/mol",
+            "estado": "STABLE"
+        },
+        "SEN-CICLO-G1G5-CYC": {
+            "parametro": "Eficiencia_Base",
+            "calibracion": "81.02%",
+            "estado": "SYNCHRONIZED"
+        },
+        "SEN-BIOT-VERT-Q": {
+            "parametro": "Angulo_Polarizacion",
+            "calibracion": "65.8750 deg",
+            "estado": "LOCKED_VERTICES_Q"
+        },
+        "SEN-BIOMATRIX-TTY": {
+            "parametro": "Eficiencia_Absoluta_Sujeto",
+            "calibracion": "89.95%",
+            "estado": "CALIBRATED_AND_LINKED"
+        }
+    }
+}
