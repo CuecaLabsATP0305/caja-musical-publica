@@ -1,0 +1,12 @@
+{
+    "estado_escudo": "ACTIVO_LAZO_CERRADO",
+    "fecha_acuñacion_utc": "2026-11-02T23:12:07.725363Z",
+    "garante_fisico_legal": "CuecaLabsATP0305",
+    "identificador_patente": "QOT-DPP4-2026-P01",
+    "marco_regulatorio": "UNESCO Open Science Directives & AGPL-3.0 Copyleft",
+    "integridad_codigo_fuente": {
+        "core_monolithic_telemetry.py": "968838dbe05d8439a1ceb694025ea241d54fbb9e32b1082c426f76017ee31485",
+        "MANIFESTO_OPEN_SCIENCE_CUECALABS.md": "81f6e4a06f3f074930e16b3a5a14c582d5f059fb566b71051536c79de6ac1426"
+    },
+    "clausula_anti_takedown": "Este repositorio constituye un Bien de Uso Público Universal protegido contra la apropiación indebida de algoritmos. Cualquier reclamación automatizada sin revisión por pares médicos calificados viola los términos de bioseguridad del registro autónomo QOT-DPP4-2026-P01."
+}

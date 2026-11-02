@@ -1,0 +1,12 @@
+--- VERIFICACIÓN DE INTEGRALIDAD CUECALABS - GOLD STANDARD ---
+Fecha de Sincronización : Mon Nov  2 23:19:12 UTC 2026 UTC
+Garante Legal Físico   : CuecaLabsATP0305
+Estado de Homeostasis  : COMPLETO | CERO ERRORES
+------------------------------------------------------------
+968838dbe05d8439a1ceb694025ea241d54fbb9e32b1082c426f76017ee31485  core_monolithic_telemetry.py
+81f6e4a06f3f074930e16b3a5a14c582d5f059fb566b71051536c79de6ac1426  MANIFESTO_OPEN_SCIENCE_CUECALABS.md
+0960ce5bc2bbe14b27a0715cfd428e443ab505f2fb9d4706dc3874c511726df4  r3_anti_takedown_shield.py
+c476f4dfca291fa598932ebd8d1eb4948a8f7a6d6c812372238b329ba53898c9  LEGAL_R3_IMMUNITY.md
+2c80559b8af8e639970f90c62424e5010f431fd762716d90dc3578cdfe56e98b  SECURITY_R3_IMMUNITY_MANIFEST.json
+d28af7c0de15a33f11fdaeb02ccef8c96eec7502d0b89581f6986dbda7c725e0  index.html
+e35440b9b5a7955bd39891ab2845c7f12dc42d7239d7355a1fe17032bc18402c  deploy_frontend_integration.sh
