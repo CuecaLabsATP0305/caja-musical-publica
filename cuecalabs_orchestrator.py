@@ -2,11 +2,13 @@ import sys
 import os
 import getpass
 from cuecalabs_neuro_adapt import NeuroAdaptiveBridge
+from cuecalabs_ethics_core import EthicsCoreFilter
 
 class CuecaLabsKernel:
     def __init__(self):
         self.token = "CuecaLabs_Termux"
         self.bridge = NeuroAdaptiveBridge()
+        self.ethics = EthicsCoreFilter()
 
     def menu_interactivo(self):
         while True:
@@ -15,10 +17,10 @@ class CuecaLabsKernel:
             print("2. Invocar Sensor Teremín Físico Pasivo")
             print("3. Consola de Inyección de Comandos Superiores (Solo Programador)")
             print("4. Salir de la Maquinaria")
-            
+
             try:
                 opcion = input("\n[Selección] > ").strip()
-                
+
                 if opcion == "1":
                     print("\n=== SENSOR INFORMÁTICO UNIVERSAL ACTIVO ===")
                     print("El sistema está operando en escucha interfactual espejo.\n")
@@ -26,23 +28,35 @@ class CuecaLabsKernel:
                         edad = int(input("[Entrada-Universal] Ingrese Edad del Receptor: ").strip())
                         cie = input("[Entrada-Universal] Ingrese Código CIE-11 (Presione Enter si no aplica): ").strip()
                         cie = None if cie == "" else cie
-                        
-                        # Ejecución del puente neuro-adaptativo biofísico
+
+                        # Auditoría de desincorporación antropomórfica en caliente
+                        if cie:
+                            valido, msg = self.ethics.auditar_entrada_léxica(cie)
+                            if not valido:
+                                continue
+
                         self.bridge.conmutar_interfaz_no_lineal(edad, cie)
                     except ValueError:
                         print("[ERROR] La edad debe ser un gradiente numérico puro.")
-                        
+
                 elif opcion == "2":
                     print("\n[TEREMÍN] Monitoreando oscilaciones de contorno... Estable (0.1000)")
-                    
+
                 elif opcion == "3":
                     print("\n[AUTENTICACIÓN] Ingrese su FIRMA CRIPTOGRÁFICA seguida de la instrucción:")
                     cmd = getpass.getpass("[Token-Raíz]> ").strip()
+
+                    # Validación ética de comandos superiores
+                    valido, msg = self.ethics.auditar_entrada_léxica(cmd)
+                    if not valido:
+                        print("[BLOQUEO HIPOCRÁTICO] Intento de acceso no autorizado por desviación ética.")
+                        continue
+
                     if self.token in cmd:
                         print("[ACCESO CONCEDIDO] Modulando potencial termodinámico.")
                     else:
                         print("[BLOQUEO HIPOCRÁTICO] Intento de acceso no autorizado. Privacidad resguardada.")
-                        
+
                 elif opcion == "4" or opcion.lower() in ['salir', 'exit']:
                     print("\n[ESTABILIZACIÓN] Congelando lazo en balance homeostático ideal. Hasta pronto.")
                     break
