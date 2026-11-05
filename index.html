@@ -3,199 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CuecaLabs Core - Visualizador e Interfaz Fractal</title>
+    <title>CuecaLabs - Theremin Heterodino Grado Sinfónico</title>
     <style>
         body {
-            background-color: #0d1117;
-            color: #c9d1d9;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            text-align: center;
-            margin: 0;
+            background-color: #03050a;
+            color: #cbd5e1;
+            font-family: 'Courier New', Courier, monospace;
             padding: 20px;
+            margin: 0;
         }
-        h1 { color: #58a6ff; margin-bottom: 5px; }
-        .metadata { font-size: 0.85em; color: #8b949e; margin-bottom: 20px; }
-        #canvasContainer { margin: 10px auto; max-width: 600px; }
-        canvas {
-            background: #161b22;
-            border: 2px solid #30363d;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid #1e293b;
+            background: #070c1e;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
             border-radius: 8px;
-            width: 100%;
-            height: auto;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
-        .btn-audio {
-            background-color: #238636;
+        h1, h2 {
+            color: #38bdf8;
+            border-bottom: 1px dashed #1e293b;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .author-badge {
+            background: #1e1b4b;
+            color: #818cf8;
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            font-weight: bold;
+            border: 1px solid #4338ca;
+            margin-bottom: 15px;
+        }
+        .metric-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .metric {
+            background: #0b0f19;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #0ea5e9;
+        }
+        .metric.highlight {
+            border-left-color: #a855f7;
+        }
+        .value {
+            font-size: 22px;
+            font-weight: bold;
             color: #ffffff;
+            margin-top: 5px;
+        }
+        .theremin-panel {
+            background: linear-gradient(135deg, #131034 0%, #02040a 100%);
+            border: 2px solid #4f46e5;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .audio-btn {
+            background: #10b981;
+            color: #fff;
             border: none;
             padding: 12px 24px;
             font-size: 16px;
             font-weight: bold;
-            border-radius: 6px;
+            border-radius: 4px;
             cursor: pointer;
-            margin: 15px auto;
-            display: block;
-            transition: background 0.2s;
+            box-shadow: 0 4px 6px rgba(16,185,129,0.3);
+            text-transform: uppercase;
         }
-        .btn-audio:hover { background-color: #2ea043; }
-        .controls-info { font-size: 0.9em; color: #7d8590; margin-top: 10px; }
+        .audio-btn:hover { background: #059669; }
+        .console-log {
+            background: #010409;
+            padding: 15px;
+            border: 1px solid #1e293b;
+            color: #34d399;
+            height: 120px;
+            overflow-y: scroll;
+            margin-top: 20px;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>📊 Ecosistema de Inferencia Homeostática</h1>
+        <div class="author-badge">🔬 DISEÑADOR AUTORIZADO: Freddy Arce</div>
+        <div><strong>ESTADO GLOBAL:</strong> <span style="color:#10b981; font-weight:bold;">OPERACIÓN_NOMINAL</span></div>
+        
+        <div class="theremin-panel">
+            <h2>🎻 Instrumento Heterodino Grado Sinfónico</h2>
+            <p>Lazo sensorial de retroalimentación acoplado a la física del hardware nativo</p>
+            <button class="audio-btn" id="startAudioBtn" onclick="initThereminAudio()">Iniciar Acoplamiento Acústico</button>
+            <div class="metric-box" style="margin-top:15px;">
+                <div class="metric" style="border-left-color:#f43f5e;">
+                    <div>Frecuencia de Batimiento Real</div>
+                    <div class="value" id="valFreq">0.00 Hz</div>
+                </div>
+                <div class="metric" style="border-left-color:#eab308;">
+                    <div>Factor de Volumen Termodinámico</div>
+                    <div class="value" id="valVol">0.0000</div>
+                </div>
+            </div>
+        </div>
 
-    <h1>🏛️ Árbol de las Ciencias del Fruto Maduro</h1>
-    <div class="metadata">
-        Licencia AGPL-3.0 Descentralizada | Registro: QOT-DPP4-2026-P01 | Garante: CuecaLabsATP0305
-    </div>
+        <h2>🪐 Coordenadas del Espacio de Fases (GSQ-CORE)</h2>
+        <div class="metric-box">
+            <div class="metric"><div>Cys25-His159 / Ciclo Celular (X)</div><div class="value" id="valX">0.1000</div></div>
+            <div class="metric"><div>CD26/DPP4 / Receptores (Y)</div><div class="value" id="valY">0.1000</div></div>
+            <div class="metric"><div>HSP70 / Entropía Local (Z)</div><div class="value" id="valZ">0.1000</div></div>
+            <div class="metric highlight"><div>Energía Libre de Gibbs</div><div class="value" id="valGibbs">-5.0000 kcal/mol</div></div>
+        </div>
 
-    <!-- Botón de desbloqueo unificado para políticas de seguridad de audio en móviles -->
-    <button class="btn-audio" id="initAudioBtn">⚡ Inicializar y Desbloquear Theremin</button>
-
-    <div id="canvasContainer">
-        <canvas id="scienceTreeCanvas" width="600" height="500"></canvas>
-    </div>
-
-    <div class="controls-info" id="statusDisplay">
-        🎛️ Theremin Inactivo | Frecuencia Basal: 850.22 Hz | Desviación: 0.000000 Hz
+        <div class="console-log" id="terminalLog">>> Inicializando calibración homeostática del lenguaje...</div>
     </div>
 
     <script>
-        // --- 1. CONFIGURACIÓN DEL CANVAS (INFOGRAFÍA DEL BIORREACTOR) ---
-        const canvas = document.getElementById('scienceTreeCanvas');
-        const ctx = canvas.getContext('2d');
+        const logArea = document.getElementById('terminalLog');
+        let audioCtx = null, oscillator = null, gainNode = null;
 
-        function dibujarInfografia(ejeX = 0, ejeY = 0) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Dibujar Árbol de la Ciencia (Estructura de la Papaína)
-            ctx.strokeStyle = '#238636';
-            ctx.lineWidth = 6;
-            ctx.beginPath();
-            ctx.moveTo(300, 480);
-            ctx.lineTo(300, 250); // Tronco principal
-            ctx.stroke();
-
-            // Ramificaciones Fractales
-            ctx.strokeStyle = '#2ea043';
-            ctx.lineWidth = 4;
-            ctx.beginPath();
-            ctx.moveTo(300, 350); ctx.lineTo(200, 280);
-            ctx.moveTo(300, 280); ctx.lineTo(400, 220);
-            ctx.stroke();
-
-            // Fruto Maduro (Fijación del Pozo Cuántico PAR2 a -5.0 kcal/mol)
-            ctx.fillStyle = '#e3b341';
-            ctx.beginPath();
-            ctx.arc(300, 220, 35, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Texto Informativo del Fruto
-            ctx.fillStyle = '#0d1117';
-            ctx.font = 'bold 12px Arial';
-            ctx.textAlign = 'center';
-            ctx.fillText('PAR2', 300, 215);
-            ctx.fillText('-5.0 kcal', 300, 230);
-
-            // Capa de Confinamiento Micelar (Círculo de Seguridad Exterior)
-            ctx.strokeStyle = '#388bfd';
-            ctx.lineWidth = 2;
-            ctx.setLineDash([6, 6]);
-            ctx.beginPath();
-            ctx.arc(300, 250, 180 + (ejeX * 5), 0, Math.PI * 2);
-            ctx.stroke();
-            ctx.setLineDash([]);
-
-            // Indicador de Cursor Táctil / Interacción
-            if (ejeX !== 0 || ejeY !== 0) {
-                ctx.fillStyle = '#f85149';
-                ctx.beginPath();
-                ctx.arc(ejeX, ejeY, 8, 0, Math.PI * 2);
-                ctx.fill();
-            }
-
-            // Etiquetas de las Capas Fractales
-            ctx.fillStyle = '#58a6ff';
-            ctx.font = '14px monospace';
-            ctx.textAlign = 'left';
-            ctx.fillText('Capa Ultra-Micro: Cys25–His159', 20, 40);
-            ctx.fillText('Capa Sistémica: Matriz MPC Activa', 20, 60);
-            ctx.fillText('Capa Macro-Social: Bien Público', 20, 80);
+        function appendLog(text) {
+            const timestamp = new Date().toLocaleTimeString();
+            logArea.innerHTML += `\n[${timestamp}] ${text}`;
+            logArea.scrollTop = logArea.scrollHeight;
         }
 
-        // Renderizado inicial estático
-        dibujarInfografia();
+        function initThereminAudio() {
+            if (audioCtx) return;
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            oscillator = audioCtx.createOscillator();
+            gainNode = audioCtx.createGain();
+            
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+            gainNode.gain.setValueAtTime(0.04, audioCtx.currentTime);
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            oscillator.start();
+            
+            document.getElementById('startAudioBtn').innerText = "AUDIO HETERODINO ACTIVO";
+            document.getElementById('startAudioBtn').style.background = "#0284c7";
+            appendLog("Módulo Sinfónico: Batimiento heterodino acoplado al hardware de audio.");
+        }
 
-        // --- 2. INTEGRACIÓN EN LAZO CERRADO VÍA WEB AUDIO API ---
-        let audioCtx = null;
-        let oscillator = null;
-        let gainNode = null;
-        const basalFreq = 850.22;
-
-        const initBtn = document.getElementById('initAudioBtn');
-        const statusDisplay = document.getElementById('statusDisplay');
-
-        initBtn.addEventListener('click', () => {
-            if (!audioCtx) {
-                // Inicializar contexto de audio compatible con navegadores móviles
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        async function fetchMetrics() {
+            try {
+                const response = await fetch('http://localhost:8080/api/metrics');
+                if (!response.ok) throw new Error();
+                const result = await response.json();
                 
-                oscillator = audioCtx.createOscillator();
-                gainNode = audioCtx.createGain();
-
-                oscillator.type = 'sine';
-                oscillator.frequency.setValueAtTime(basalFreq, audioCtx.currentTime);
-                gainNode.gain.setValueAtTime(0.02, audioCtx.currentTime); // Volumen de protección bajo
-
-                oscillator.connect(gainNode);
-                gainNode.connect(audioCtx.destination);
-                oscillator.start();
-
-                statusDisplay.innerText = `⚡ Theremin Activo | Frecuencia: ${basalFreq} Hz | Lazo Cerrado Estable`;
-                initBtn.style.backgroundColor = '#21262d';
-                initBtn.innerText = '⚙️ Interfaz de Audio Conectada';
-            }
-        });
-
-        // --- 3. SEÑALIZACIÓN EN TIEMPO REAL POR INTERACCIÓN TÁCTIL (THEREMIN) ---
-        function manejarInteraccion(clientX, clientY) {
-            const rect = canvas.getBoundingClientRect();
-            const x = clientX - rect.left;
-            const y = clientY - rect.top;
-
-            // Escalar coordenadas a la resolución interna del canvas
-            const canvasX = (x / rect.width) * canvas.width;
-            const canvasY = (y / rect.height) * canvas.height;
-
-            // Redibuja el árbol de la ciencia adaptando el confinamiento micelar dinámicamente
-            dibujarInfografia(canvasX, canvasY);
-
-            // Modulación de frecuencia en función de la posición del cursor táctil
-            if (audioCtx && oscillator) {
-                // Mapear el Eje X al rango de modulación de alta gama
-                const deltaFreq = (canvasX - 300) * 1.2; 
-                const nuevaFrecuencia = basalFreq + deltaFreq;
-                oscillator.frequency.setValueAtTime(nuevaFrecuencia, audioCtx.currentTime);
-
-                // Mapear el Eje Y a la ganancia dieléctrica (volumen) de forma controlada
-                const nuevaGanancia = Math.max(0.005, Math.min(0.08, (1 - (canvasY / canvas.height)) * 0.1));
-                gainNode.gain.setValueAtTime(nuevaGanancia, audioCtx.currentTime);
-
-                statusDisplay.innerText = `🎛️ Dinámico | F0: ${nuevaFrecuencia.toFixed(2)} Hz | Modulación MPC Activa`;
+                if (result.status === "SUCCESS") {
+                    const data = result.data;
+                    document.getElementById('valX').innerText = data.phase_space.X_ccng1_cys;
+                    document.getElementById('valY').innerText = data.phase_space.Y_angiotensin_cd26;
+                    document.getElementById('valZ').innerText = data.phase_space.Z_entropy_hsp;
+                    document.getElementById('valGibbs').innerText = `${data.gibbs_energy_kcal_mol} kcal/mol`;
+                    
+                    const freq = data.theremin_heterodino_sinfonico.frecuencia_hz;
+                    const vol = data.theremin_heterodino_sinfonico.volumen_factor;
+                    document.getElementById('valFreq').innerText = `${freq} Hz`;
+                    document.getElementById('valVol').innerText = vol.toFixed(4);
+                    
+                    if (audioCtx && oscillator && gainNode) {
+                        oscillator.frequency.setTargetAtTime(freq, audioCtx.currentTime, 0.08);
+                        gainNode.gain.setTargetAtTime(vol * 0.04, audioCtx.currentTime, 0.08);
+                    }
+                    
+                    // Mensaje pedagógico adaptativo purificado sin la palabra mutada
+                    appendLog(`Homeostasis del Lenguaje: Estado Nativo verificado para ${result.disenador_autorizado}.`);
+                }
+            } catch (error) {
+                appendLog("Fallo de enlace loopback. Verifique el buffer del nodo.");
             }
         }
-
-        // Escuchadores de eventos para ratón y pantallas táctiles
-        canvas.addEventListener('mousemove', (e) => {
-            manejarInteraccion(e.clientX, e.clientY);
-        });
-
-        canvas.addEventListener('touchmove', (e) => {
-            if (e.touches.length > 0) {
-                manejarInteraccion(e.touches[0].clientX, e.touches[0].clientY);
-                e.preventDefault(); // Impedir scroll de pantalla durante la modulación
-            }
-        }, { passive: false });
-
+        setInterval(fetchMetrics, 400);
     </script>
 </body>
 </html>
