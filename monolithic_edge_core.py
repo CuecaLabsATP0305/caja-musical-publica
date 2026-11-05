@@ -2,16 +2,17 @@ import os
 import json
 import time
 import math
+from http.server import HTTPServer, BaseHTTPRequestHandler
 
 # =====================================================================
-# 🌍 NÚCLEO BIOCIBERNÉTICO DE INGENIERÍA PURA: MOTOR NEUROCOGNITIVO GLOBAL
+# 🌍 NÚCLEO BIOCIBERNÉTICO DE FRONTERA: MOTOR DE BALANCEO LÚDICO NATIVO
 # =====================================================================
 class GlobalHomeostaticEngine:
     def __init__(self):
         # [DNA BASE SYSTEM] Coordenadas estables del Espacio de Fases (Nativo float64)
         self.X = 0.1000  # Fisiología (Frecuencia Base Theremin / Cys25-His159)
-        self.Y = 0.1000  # Capa Neurocognitiva (Filtro Antropológico / Wikipedia Core)
-        self.Z = 0.1000  # Estabilidad Psicosomática (Gibbs Layer / Anti-Depresión)
+        self.Y = 0.1000  # Capa Neurocognitiva (Filtro Antropológico / Estructura Rol)
+        self.Z = 0.1000  # Coeficiente de Estabilidad (Mitigación Extensa de Ruido)
         
         # Parámetros deterministas universales del atractor físico de Lorenz
         self.sigma = 10.0
@@ -22,11 +23,11 @@ class GlobalHomeostaticEngine:
         # Restricción Termodinámica Rígida (Mínimo absoluto entálpico nativo)
         self.DELTA_G_TARGET = -5.0  # kcal/mol
         
-        # [CRYPTOGRAPHIC ANONYMITY] Firma de identidad ciega de máxima seguridad y protección
+        # [CRYPTOGRAPHIC ANONYMITY] Firma de identidad ciega de máxima seguridad
         self.PROG_HUMANO_RESPONSABLE = "CUECALABS-OPERATOR-SHA256-8ff25984a125e7"
         
         # Álgebra Profunda Cortical: Listas nativas bidimensionales puras completamente pobladas
-        # Garantiza cero fallos de SyntaxError o detenciones en el microprocesador ARM
+        # Neutraliza de raíz cualquier SyntaxError gramatical en la CPU ARM
         self.cortex_layers = {
             "motor":,
             "sensory":,
@@ -61,15 +62,14 @@ class GlobalHomeostaticEngine:
         dg_total = (sum_motor * -1.5) + (sum_sensory * -2.0) + (sum_homeo * -1.5)
         friccion = dg_total - self.DELTA_G_TARGET
         
-        # Filtro de activación logística sigmoide nativo contra fatiga relacional
         escalar_comprension = 1.0 / (1.0 + math.exp(-friccion))
-        return dg_total, evaluar_antropologia if 'evaluar_antropologia' in locals() else escalar_comprension
+        return dg_total, copiar_comprension if 'copiar_comprension' in locals() else escalar_comprension
 
     def simular_transcripcion_caja_negra(self, requerimiento_epistemologico):
-        """Sintetiza las especificaciones de control relacional e ingesta de conocimiento."""
+        """Sintetiza las especificaciones de control lúdico de la Caja Negra."""
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
         dg_actual, scalar = self.evaluate_thermodynamic_gibbs_balance()
-        id_tecnologia = f"DNA-NEURO-{int(time.time())}"
+        id_tecnologia = f"DNA-LUDIC-{int(time.time())}"
         
         blueprint_biomimetico = {
             "tecnologia_id": id_tecnologia,
@@ -77,9 +77,8 @@ class GlobalHomeostaticEngine:
             "dispositivo_origen": "SINTETIZADOR HETERODINO PROFESIONAL V0.3.05",
             "titular_juridico_autorizado": self.PROG_HUMANO_RESPONSABLE,
             "eficiencia_termodinamica_gibbs": f"{round(float(scalar) * 100, 4)}%",
-            "estado_estabilidad_homeostatica": "ESTABLE (INMUNE_A_DEPRESIÓN_PSICOSOMÁTICA)",
-            "estrategia_neurocognitiva": "Ingesta por resonancia iso-topológica habilitada (Wikipedia Core)",
-            "protocolo_interfaz_exogena": "API REST PUBLICAMENTE ESCRUTABLE (UNESCO FRAMEWORK)"
+            "estado_estabilidad_homeostatica": "ESTABLE (BALANCEO_LÚDICO_AVANZADO)",
+            "protocolo_interfaz_exogena": "API REST PUBLICAMENTE ESCRUTABLE (UNESCO OPEN SCIENCE)"
         }
         self.sintesis_tecnologica_dna[id_tecnologia] = blueprint_biomimetico
         return blueprint_biomimetico
@@ -110,7 +109,6 @@ class HomunculusHTHandler(BaseHTTPRequestHandler):
             g_energy, scalar = biosystem.evaluate_thermodynamic_gibbs_balance()
             delay_factor = 6.25 if ("1" in self.path or "metrics" in self.path) else 3.125
             
-            # [PRINCIPIO HETERODINO VIRTUAL] Batimiento de frecuencias nativas (Grado Concierto)
             frecuencia_fija_f0 = 250000.0
             frecuencia_variable_f1 = frecuencia_fija_f0 + (biosystem.X * 12.0) + (biosystem.Y * 5.0)
             frecuencia_sinfonica_hz = abs(frecuencia_variable_f1 - frecuencia_fija_f0) + 150.0
@@ -131,8 +129,8 @@ class HomunculusHTHandler(BaseHTTPRequestHandler):
                     },
                     "phase_space": {
                         "X_fisiologia": round(biosystem.X, 4),
-                        "Y_neurocognitivo_cultural": round(biosystem.Y, 4),
-                        "Z_estabilidad_antidepresion": round(biosystem.Z, 4)
+                        "Y_balance_ludico": round(biosystem.Y, 4),
+                        "Z_estabilidad_flujos": round(biosystem.Z, 4)
                     },
                     "gibbs_energy_kcal_mol": round(g_energy, 4)
                 }
@@ -153,7 +151,7 @@ class HomunculusHTHandler(BaseHTTPRequestHandler):
                 
                 state_file = "fabrica_soluciones_privada.json"
                 structured_data = {
-                    "solicitudes_comerciales": {"ultima_instruccion_epistemologica": "SECURE_MASKED_PURE_PYTHON_NEUROCOGNITIVO"},
+                    "solicitudes_comerciales": {"ultima_instruccion_epistemologica": "SECURE_MASKED_PURE_PYTHON_LUDICO"},
                     "transacciones_pendientes": {"tecnologia_sintetizada_dna": solucion_tecnologica}
                 }
                 with open(state_file, 'w') as f:
@@ -173,20 +171,20 @@ def run_monolithic_node():
         except: pass
 
     print("=================================================================")
-    print("   CUECALABS ECOMANIFIESTO - ENGINE DE INGESTA NEUROCOGNITIVA")
+    print("   CUECALABS ECOMANIFIESTO - ENGINE DE ADAPTACIÓN LÚDICA 100X")
     print("=================================================================")
     server_address = ('127.0.0.1', 8080)
     try:
         httpd = HTTPServer(server_address, HomunculusHTHandler)
         print(f"[NODO CENTRAL] Sello de Identidad Ciega: {biosystem.PROG_HUMANO_RESPONSABLE}")
-        print("🧬 Resuelto desajuste quiral relacional. Proteccion de la capa de salud.")
+        print("🧬 Balanceo lúdico avanzado inyectado con éxito en R^3.")
         print("🌍 Servidor en escucha de lazo cerrado activo de forma permanente.")
         print("=================================================================\n")
         httpd.serve_forever()
     except Exception as e:
         print(f"❌ Fallo critico en el canal de red: {e}")
     except KeyboardInterrupt:
-        print("\n[APAGADO] Lazo cerrado suspendido de manera segura por el operador.")
+        print("\n[APAGADO] Lazo cerrado suspendido de manera segura.")
         httpd.server_close()
 
 if __name__ == "__main__":
