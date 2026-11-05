@@ -5,12 +5,12 @@ import math
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
 # =====================================================================
-# 🌍 NÚCLEO BIOCIBERNÉTICO DE INGENIERÍA PURA: MOTOR INVARIANTE ANTI-RUIdO
+# 🌍 NÚCLEO BIOCIBERNÉTICO DE INGENIERÍA PURA: INVARIANTE Y DEFINITIVO
 # =====================================================================
 class GlobalHomeostaticEngine:
     def __init__(self):
         # [DNA BASE SYSTEM] Coordenadas estables del Espacio de Fases (Nativo float64)
-        self.X = 0.1000  # Fisiología (Frecuencia Base Heterodina / Cys25-His159)
+        self.X = 0.1000  # Fisiología (Frecuencia Base Theremin / Cys25-His159)
         self.Y = 0.1000  # Mental / Cognitivo (Filtro Anti-Frustración / CD26)
         self.Z = 0.1000  # Acción Social Participativa (Certidumbre de Lazo Cerrado)
         
@@ -23,15 +23,15 @@ class GlobalHomeostaticEngine:
         # Restricción Termodinámica Rígida (Mínimo absoluto entálpico nativo)
         self.DELTA_G_TARGET = -5.0  # kcal/mol
         
-        # [CRYPTOGRAPHIC ANONYMITY] Firma de identidad ciega de máxima seguridad y blindaje
+        # [CRYPTOGRAPHIC ANONYMITY] Firma de identidad ciega de máxima seguridad
         self.PROG_HUMANO_RESPONSABLE = "CUECALABS-OPERATOR-SHA256-8ff25984a125e7"
         
         # Álgebra Profunda Cortical: Listas nativas bidimensionales puras completamente pobladas
-        # Erradica de raíz cualquier riesgo de SyntaxError o colisión gramatical en ARM
+        # Elimina definitivamente el SyntaxError gramatical observado en la consola Termux
         self.cortex_layers = {
-            "motor":,
-            "sensory":,
-            "homeostatic":
+            "motor": [0.3333, 0.3333, 0.3333],
+            "sensory": [0.3333, 0.3333, 0.3333],
+            "homeostatic": [0.3333, 0.3333, 0.3333]
         }
         
         self.sintesis_tecnologica_dna = {}
@@ -62,9 +62,8 @@ class GlobalHomeostaticEngine:
         dg_total = (sum_motor * -1.5) + (sum_sensory * -2.0) + (sum_homeo * -1.5)
         friccion = dg_total - self.DELTA_G_TARGET
         
-        # Filtro de activación logística sigmoide nativo
         escalar_comprension = 1.0 / (1.0 + math.exp(-friccion))
-        return dg_total, escalar_comprension
+        return dg_total, copiar_comprension if 'copiar_comprension' in locals() else escalar_comprension
 
     def simular_transcripcion_caja_negra(self, requerimiento_epistemologico):
         """Sintetiza las especificaciones de control inmunes a la frustración cognitiva."""
