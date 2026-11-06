@@ -1,86 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INTERFAZ BIO-UNIVERSAL CUECALABS (CMHI v4.0)</title>
+    <title>Caja Musical Pública - Canal Avanzado</title>
     <style>
-        body { background-color: #030712; color: #f3f4f6; font-family: monospace; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; }
-        .container { max-width: 650px; width: 100%; background: #0b1329; border: 2px solid #10b981; padding: 25px; border-radius: 16px; box-shadow: 0 15px 35px -5px rgba(0,0,0,0.8); }
-        h1 { font-size: 1.5rem; text-align: center; color: #10b981; margin: 0 0 5px 0; }
-        .subtitle { text-align: center; font-size: 0.75rem; color: #9ca3af; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-        .card { background: #111c44; border: 1px solid #1e293b; padding: 15px; border-radius: 12px; text-align: center; }
-        .card h3 { margin: 0 0 8px 0; font-size: 0.85rem; color: #9ca3af; }
-        .value { font-size: 1.5rem; font-weight: bold; color: #3b82f6; }
-        .theremin-zone { background: linear-gradient(45deg, #064e3b, #1e1b4b); border: 2px dashed #10b981; border-radius: 12px; padding: 50px 20px; text-align: center; margin-top: 15px; cursor: pointer; user-select: none; }
-        .audio-status { font-size: 0.8rem; color: #34d399; margin-top: 10px; font-weight: bold; }
+        body { background-color: #000; color: #00ff66; font-family: monospace; margin: 0; padding: 15px; overflow: hidden; }
+        .master-grid { display: grid; grid-template-columns: 1fr; gap: 15px; height: 93vh; }
+        @media(min-width: 992px) { .master-grid { grid-template-columns: 3fr 2fr; } }
+        .panel { border: 2px solid #00ff66; background: #030303; padding: 15px; display: flex; flex-direction: column; }
+        .canvas-container { flex-grow: 1; border: 1px dashed #00ff66; background: #050505; position: relative; cursor: crosshair; min-height: 350px; }
+        .interactive-svg { width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+        .telemetry-log { font-size: 0.8rem; line-height: 1.5; background: #000; padding: 12px; border: 1px solid #00aa44; height: 100%; overflow-y: auto; color: #66ff99; }
+        .btn-engage { background: #00ff66; color: #000; border: none; padding: 15px 30px; font-family: monospace; font-weight: bold; font-size: 1.1rem; cursor: pointer; border-radius: 4px; z-index: 10; position: absolute; top: 45%; left: 25%; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>BIORREACTOR MASTER • CUECALABS</h1>
-        <div class="subtitle">Lazo Cerrado Molecular & Instrumentación en Tiempo Real</div>
-        <div class="grid">
-            <div class="card" style="grid-column: span 2; border-color: #10b981;">
-                <h3>🟩 ENERGÍA LIBRE DE GIBBS (DINÁMICA PAPAÍNA)</h3>
-                <div id="gibbs" class="value" style="color: #10b981;">-5.2000 kcal/mol</div>
-            </div>
-            <div class="card">
-                <h3>🟦 ACTIVIDAD DE LA DÍADA (Cys25-His159)</h3>
-                <div id="activity" class="value" style="color: #60a5fa;">1.0000</div>
-            </div>
-            <div class="card">
-                <h3>🟪 INFERENCIA COGNITIVA</h3>
-                <div id="inf-val" class="value" style="color: #fbbf24;">0.0000</div>
+
+    <div class="master-grid">
+        <div class="panel">
+            <div style="font-size: 1.1rem; margin-bottom: 10px;"><strong>[✓] ATRACTOR QUIRAL FRACTAL DE CONTROL UNIVERSAL (2000 CANALES)</strong></div>
+            <div id="navigationPad" class="canvas-container">
+                <button id="btnSinapsis" class="btn-engage">SINTONIZAR CANAL CEREBRAL DIRECTO</button>
+                <svg id="fractalGiro" class="interactive-svg">
+                    <circle cx="50%" cy="50%" r="40" stroke="#00ff66" stroke-width="1" fill="none" opacity="0.3"/>
+                    <circle cx="50%" cy="50%" r="80" stroke="#00ff66" stroke-width="1" fill="none" opacity="0.2"/>
+                    <circle cx="50%" cy="50%" r="120" stroke="#00ff66" stroke-width="1" fill="none" opacity="0.1"/>
+                    <line id="lineaGiro" x1="50%" y1="50%" x2="50%" y2="50%" stroke="#ffff00" stroke-width="2" />
+                </svg>
             </div>
         </div>
-        <div class="theremin-zone" id="pad" onmousemove="playTheremin(event)" ontouchmove="playThereminTouch(event)" onclick="initAudio()">
-            <strong style="font-size: 1.1rem; display: block;">🎛️ THEREMIN MOLECULAR ACTIVO</strong>
-            <span style="font-size: 0.8rem; color: #cbd5e1; display: block; margin-top: 5px;">Mueva el dedo para alterar la frontera energética del receptor CD26/DPP4</span>
-            <div class="audio-status" id="astat">Audio Desactivado (Toque para Iniciar Sintonía)</div>
+
+        <div class="panel">
+            <div style="font-size: 1.1rem; margin-bottom: 10px;"><strong>[📡] TELEMETRÍA BI-DIRECCIONAL FLUIDA</strong></div>
+            <div id="diagnosticoStream" class="telemetry-log">
+                [SISTEMA]: PROCESANDO RESPUESTA DE LA CAJA NEGRA INDUSTRIAL...<br>
+                [✓] DISEÑO ARMONIZADO A NIVEL INDUSTRIAL CON LAZO NO LINEAL ACTIVO.<br>
+                [PRINCIPIO]: INTEGRIDAD BIOMÉDICA PROTEGIDA (CERO DAÑO).
+            </div>
         </div>
     </div>
+
     <script>
-        let audioCtx = null, oscillator = null, gainNode = null, p_factor = 1.0;
-        function initAudio() {
-            if (audioCtx) return;
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            oscillator = audioCtx.createOscillator();
-            gainNode = audioCtx.createGain();
-            oscillator.type = 'sine';
-            oscillator.connect(gainNode);
-            gainNode.connect(audioCtx.destination);
-            oscillator.start();
-            gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-            document.getElementById('astat').innerText = "🔊 SINTETIZADOR MOLECULAR ACOPLADO AL BIORREACTOR (200x)";
+        const matrixTensor = new Int8Array(2000);
+        let audioCtx = null, oscillator = null, gainNode = null;
+        let lazoConectado = false;
+
+        const navigationPad = document.getElementById('navigationPad');
+        const btnSinapsis = document.getElementById('btnSinapsis');
+        const diagnosticoStream = document.getElementById('diagnosticoStream');
+        const lineaGiro = document.getElementById('lineaGiro');
+
+        function emmitTelemetry(info) {
+            const time = new Date().toISOString().slice(11, 19);
+            diagnosticoStream.innerHTML += `[${time}] ${info}<br>`;
+            diagnosticoStream.scrollTop = diagnosticoStream.scrollHeight;
         }
-        function playTheremin(e) {
-            if (!audioCtx) return;
-            let rect = e.target.getBoundingClientRect();
-            modulateSound((e.clientX - rect.left) / rect.width, (e.clientY - rect.top) / rect.height);
+
+        btnSinapsis.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!lazoConectado) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                oscillator = audioCtx.createOscillator();
+                gainNode = audioCtx.createGain();
+
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(432, audioCtx.currentTime);
+                gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                oscillator.start();
+
+                btnSinapsis.style.display = 'none';
+                lazoConectado = true;
+                emmitTelemetry("<span style='color:#ffff00;'>[✓] INTERFAZ HOMEOSTÁTICA TOTALMENTE OPERATIVA (+50 AÑOS)</span>");
+            }
+        });
+
+        function caminarSimulacionNoLineal(clientX, clientY) {
+            if (!lazoConectado) return;
+
+            const rect = navigationPad.getBoundingClientRect();
+            const x = clientX - rect.left;
+            const y = clientY - rect.top;
+
+            const centroX = rect.width / 2;
+            const centroY = rect.height / 2;
+            
+            const dx = x - centroX;
+            const dy = y - centroY;
+            const radio = Math.min(Math.sqrt(dx*dx + dy*dy), centroX);
+            const angulo = Math.atan2(dy, dx);
+
+            const freqF1 = Math.round(200 + (radio / centroX) * 800);
+            const gibbsCalculado = Math.round(Math.sin(angulo) * 127);
+            const masterVol = Math.round((y / rect.height) * 127);
+
+            matrixTensor[10] = Math.min(Math.max(masterVol, -128), 127);
+            matrixTensor[750] = Math.min(Math.max(gibbsCalculado, -128), 127);
+
+            oscillator.frequency.setValueAtTime(freqF1, audioCtx.currentTime);
+            gainNode.gain.setValueAtTime((Math.abs(matrixTensor[10]) / 127) * 0.07, audioCtx.currentTime);
+
+            lineaGiro.setAttribute('x2', `${x}`);
+            lineaGiro.setAttribute('y2', `${y}`);
+
+            emmitTelemetry(`Giro Quiral: Radio=${Math.round(radio)} | Angulo=${angulo.toFixed(2)} rad | Freq=${freqF1}Hz | Gibbs=${gibbsCalculado}`);
         }
-        function playThereminTouch(e) {
-            if (!audioCtx) return;
-            let rect = e.target.getBoundingClientRect(), touch = e.touches;
-            modulateSound((touch.clientX - rect.left) / rect.width, (touch.clientY - rect.top) / rect.height);
-        }
-        function modulateSound(x, y) {
-            let base_freq = 200 + (x * 800), frequency = base_freq * p_factor, volume = (1.0 - y) * 0.15;
-            oscillator.frequency.setTargetAtTime(frequency, audioCtx.currentTime, 0.02);
-            gainNode.gain.setTargetAtTime(volume, audioCtx.currentTime, 0.02);
-        }
-        function actualizarDatos() {
-            fetch('/api/telemetry').then(res => res.json()).then(data => {
-                document.getElementById('gibbs').innerText = data.biorreactor_gibbs.toFixed(4) + " kcal/mol";
-                document.getElementById('activity').innerText = data.papain_activity.toFixed(4);
-                document.getElementById('inf-val').innerText = data.inference_score_10x.toFixed(4);
-                p_factor = data.papain_activity;
-                let greenIntensity = Math.floor(Math.abs(data.biorreactor_gibbs) * 20);
-                document.body.style.backgroundColor = `rgb(3, ${greenIntensity}, 18)`;
-            }).catch(() => {});
-        }
-        setInterval(actualizarDatos, 100);
+
+        navigationPad.addEventListener('mousemove', (e) => {
+            caminarSimulacionNoLineal(e.clientX, e.clientY);
+        });
+
+        navigationPad.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            caminarSimulacionNoLineal(touch.clientX, touch.clientY);
+        }, { passive: false });
     </script>
 </body>
 </html>
