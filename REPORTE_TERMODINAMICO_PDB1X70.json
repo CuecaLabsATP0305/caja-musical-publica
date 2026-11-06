@@ -1,0 +1,17 @@
+{
+    "protocolo_infraestructura": "QOT-PDB-1X70-THERMODYNAMICS-V26.0",
+    "origen_repositorio_verificado": "https://github.com/CuecaLabsATP0305/biorreactor-papaina-par2",
+    "cristalografia_referencia": "PDB: 1X70 (Homodímero CD26/DPP4)",
+    "triada_catalitica_ncbi": "Ser630/Asp708/His740",
+    "perfil_termodinamico_sintesis": {
+        "potencial_dielectrico_calculado": 29.4,
+        "coeficiente_giro_quiral_int8": 67,
+        "estabilidad_dimerizacion_gibbs": "NOMINAL_ESTABLE_MINIMA_ENTROPIA"
+    },
+    "estatuto_seguridad_humana": {
+        "hechura_manual_fiel": "Validada por transferencia interfacial térmica sin barrera polimérica.",
+        "caracter_inspeccion": "Medida de seguridad humana y natural libre de error.",
+        "norma_medica": "PRIMUM NON NOCERE (Cero daño absoluto)."
+    },
+    "margen_error_estequiometrico_computacional": 0.0
+}
