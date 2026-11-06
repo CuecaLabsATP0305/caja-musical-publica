@@ -2,86 +2,48 @@ import json
 import time
 import os
 from http.server import BaseHTTPRequestHandler, HTTPServer
-import threading
+
+SHARED_BRAIN_MATRIX = {
+    "software_version": 3.0516,
+    "constructor": "Freddy Arce (Calibrador Humano)",
+    "layer_status": "INTERDEPENDIENTE_FRACTAL_PLANETARIO"
+}
 
 class CuecaLabsHTTPHandler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         return
 
+    def do_HEAD(self):
+        self.send_response(200)
+        self.send_header("Content-type", "text/html")
+        self.end_headers()
+
     def do_GET(self):
-        if self.path == "/":
+        if self.path == "/api/brain":
             self.send_response(200)
-            self.send_header("Content-type", "text/html; charset=utf-8")
+            self.send_header("Content-type", "application/json; charset=utf-8")
             self.end_headers()
-            
-            # Carga dinámica de la telemetría homeostática en caliente
-            try:
-                with open("telemetria_homeostatica.json", "r") as f:
-                    data = json.load(f)
-                pitch = data["theremin_concert_state"]["theremin_pitch_hz"]
-                volume = data["theremin_concert_state"]["theremin_volume_gain"]
-                version = data["software_version"]
-                entropy = data["thermodynamic_metrics"]["entropy_absorption"]
-            except Exception:
-                pitch, volume, version, entropy = 440.0, 0.5, 3.0508, 1.7619
+            self.wfile.write(json.dumps(SHARED_BRAIN_MATRIX).encode("utf-8"))
+            return
 
-            html_content = f"""
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <title>CuecaLabs - Caja Musical</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <style>
-                    body {{ font-family: 'Courier New', monospace; background-color: #0d0d0d; color: #00ff00; padding: 20px; text-align: center; }}
-                    .container {{ max-width: 600px; margin: 0 auto; border: 2px solid #00ff00; padding: 20px; box-shadow: 0 0 15px #00ff00; }}
-                    .box {{ border: 1px dashed #00ff00; padding: 15px; margin-top: 20px; text-align: left; background-color: #111; }}
-                    .btn {{ padding: 10px 20px; background-color: #00ff00; color: #000; border: none; font-weight: bold; cursor: pointer; margin-top: 10px; }}
-                </style>
-            </head>
-            <body>
-                <div class="container">
-                    <h2>🌍 CAJA MUSICAL UNIVERSAL</h2>
-                    <p>Interfaz de Abstracción Fascinante para la Sociedad</p>
-                    <hr style="border-color: #00ff00;">
-                    
-                    <div class="box">
-                        <h3>[Estado del Theremin de Concierto]</h3>
-                        <p>• Frecuencia: {pitch} Hz</p>
-                        <p>• Volumen: {volume}</p>
-                        <p>• Absorción de Entropía: {entropy}</p>
-                        <p>• Core Software: {version}</p>
-                        <button class="btn" onclick="audioConcert({pitch}, {volume})">🔊 ESCUCHAR EN NAVEGADOR</button>
-                    </div>
-                </div>
-                <script>
-                    function audioConcert(p, v) {{
-                        let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                        let osc = audioCtx.createOscillator();
-                        let gain = audioCtx.createGain();
-                        osc.type = 'sine';
-                        osc.frequency.setValueAtTime(p, audioCtx.currentTime);
-                        gain.gain.setValueAtTime(v, audioCtx.currentTime);
-                        osc.connect(gain);
-                        gain.connect(audioCtx.destination);
-                        osc.start();
-                        setTimeout(() => {{ osc.stop(); }}, 800);
-                    }}
-                </script>
-            </body>
-            </html>
-            """
-            self.wfile.write(html_content.encode("utf-8"))
-
-def run_server():
-    server_address = ("", 8080)
-    httpd = HTTPServer(server_address, CuecaLabsHTTPHandler)
-    print("=========================================================================")
-    print(" 🌍 CUECALABS - NÚCLEO WEB FASCINANTE Y DE BAJA FRICCIÓN ACTIVO")
-    print("=========================================================================")
-    print("  👉 Servidor de Borde levantado de forma segura.")
-    print("  👉 Abra su navegador en: http://localhost:8080")
-    print("=========================================================================")
-    httpd.serve_forever()
+        self.send_response(200)
+        self.send_header("Content-type", "text/html; charset=utf-8")
+        self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
+        self.send_header("Pragma", "no-cache")
+        self.send_header("Expires", "0")
+        self.end_headers()
+        
+        if os.path.exists("index.html"):
+            with open("index.html", "r", encoding="utf-8") as f:
+                self.wfile.write(f.read().encode("utf-8"))
+        else:
+            self.wfile.write(b"Error: index.html missing.")
 
 if __name__ == "__main__":
-    run_server()
+    print("=========================================================================")
+    print(" 🌍 CUECALABS - NÚCLEO INERCIAL PLANETARIO CONSOLIDADO ACTIVO V6")
+    print("=========================================================================")
+    try:
+        HTTPServer(("", 8080), CuecaLabsHTTPHandler).serve_forever()
+    except KeyboardInterrupt:
+        print("\nDesacoplando nodo de red de forma segura...")

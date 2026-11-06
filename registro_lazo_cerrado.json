@@ -1,0 +1,17 @@
+[
+    {
+        "timestamp": 1793636063.8278313,
+        "auditoria_estres": "COMPLETA",
+        "data": {
+            "escala_fractal_materia": 0.4642857142857143,
+            "gibbs_unificado_kJ_mol": -84.57138461538462,
+            "exponente_cooperatividad_nH": 3.1393257287797947,
+            "coordenada_X": 1.2,
+            "coordenada_Y": 1.2,
+            "coordenada_Z": 1.2,
+            "f0_acustico_Hz": 850.2245660867494,
+            "explicacion_pedagogica_nodo1": "NUBES: Las mol\u00e9culas de vapor invisible se agrupan al enfriarse perdiendo entrop\u00eda, creando gotas visibles alrededor del polvo terrestre.",
+            "explicacion_pedagogica_nodo2_3": "BATIDO: La energ\u00eda del tenedor despliega la ovoalb\u00famina l\u00edquida; sus brazos qu\u00edmicos atrapan el aire y el agua, creando una red semis\u00f3lida inmutable."
+        }
+    }
+]

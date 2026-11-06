@@ -1,0 +1,15 @@
+[
+    {
+        "timestamp": 1793642494.0055635,
+        "matriz_mpc_convergente": [
+            1.3008,
+            1.107011070110701,
+            -5.0
+        ],
+        "volumen_vehiculo_ml": 375.0,
+        "frecuencia_estabilizacion_hz": 850.22,
+        "error_sistematico": 0.0,
+        "sello_digital_autor": "aa79bd4109b20765e82737b3482b6d9696de4bac7f7905df6b0df895085c5903",
+        "garante_etico_humano": "VERIFICADO [Cuerpo F\u00edsico y Patente]"
+    }
+]{"timestamp": "2026-11-02T17:15:26.075320", "garante": "CuecaLabsATP0305", "delta_G_homeostatico": 3.923506, "matriz_mpc": {"eje_x_ccng1": 1.44, "eje_y_dielectrico": 1.0, "eje_z_quantum": -5.0}, "filtro_theremin_f0_hz": 850.22, "desviacion_residual": 0.0, "sha256_forensic_shield": "c1e5084bc1a315729f6e48d762c7ff34a227206f85010c9db3a364e834e8b90e"}

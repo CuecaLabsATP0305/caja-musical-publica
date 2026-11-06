@@ -1,0 +1,16 @@
+{
+    "timestamp": 1793642935.035722,
+    "pesos_sinapticos_optimizados": {
+        "w_edad_infantil": 0.75,
+        "w_edad_avanzada": 1.249495,
+        "w_entropia_lexica": 0.05,
+        "tasa_aprendizaje_alpha": 0.01
+    },
+    "registros_maquina": {
+        "X_CCNG1": 1.260625,
+        "Y_Pastel": 1.142291,
+        "Z_Gibbs": -5.0,
+        "F0_Theremin_Hz": 893.17
+    },
+    "error_global": 0.0
+}

@@ -1,0 +1,14 @@
+[
+    {
+        "timestamp": 1793643823.1650147,
+        "entrada_humana_cruda": "Por qu\u00e9 el ponqu\u00e9 se infla al calentarse en el laboratorio?",
+        "traduccion_biofisica": "Axioma abstracto integrado al espacio de fases din\u00e1mico.",
+        "matriz_estado_emergencia": [
+            1.2216,
+            1.178782,
+            -5.0
+        ],
+        "frecuencia_hz": 865.52,
+        "error_sistematico": 0.0
+    }
+]

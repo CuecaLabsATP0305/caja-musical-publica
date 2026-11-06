@@ -1,0 +1,14 @@
+[
+    {
+        "timestamp": 1793647413.338976,
+        "nodos_concurrentes": 100000,
+        "latencia_media_ms": 12.59,
+        "matriz_global": [
+            1.21842,
+            1.181858,
+            -5.0
+        ],
+        "frecuencia_hz": 863.27,
+        "error_sistematico": 0.0
+    }
+]

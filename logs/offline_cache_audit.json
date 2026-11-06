@@ -1,0 +1,15 @@
+[
+    {
+        "timestamp": 1793648267.3265147,
+        "origen_solicitud": "Red_Global_InterIA",
+        "consulta": "Explicar la lisis cu\u00e1ntica molecular en el ciclo celular bajo el principio de homeostasis.",
+        "nodo_servido": "proteolisis_celular",
+        "matriz_mpc": [
+            1.548,
+            0.093023,
+            -5.0
+        ],
+        "frecuencia_hz": 1096.78,
+        "error_sistematico": 0.0
+    }
+]

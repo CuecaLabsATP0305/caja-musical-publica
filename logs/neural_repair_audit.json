@@ -1,0 +1,11 @@
+[
+    {
+        "timestamp": 1793643500.8144786,
+        "estado_redes_neuronales": {
+            "red_semantica_primaria": 1.0,
+            "red_antropologica_adaptativa": 1.05,
+            "red_redundante_emergencia": 0.0
+        },
+        "error_final_sistematico": 0.0
+    }
+]

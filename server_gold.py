@@ -179,5 +179,14 @@ def un_contract():
         "auditoria": "REGISTRO_SECON_OK"
     })
 
+
+@app.route('/')
+def render_interfaz_tactil_maestro():
+    try:
+        with open("index.html", "r", encoding="utf-8") as f:
+            return f.read()
+    except Exception as e:
+        return f"Error en el lazo de interfaz: {str(e)}"
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=False)

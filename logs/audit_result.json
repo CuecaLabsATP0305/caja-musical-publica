@@ -1,0 +1,12 @@
+[
+    {
+        "timestamp": 1793637395.253155,
+        "estado_auditoria": "INTEGRIDAD_VERIFICADA_CERO_ERROR",
+        "matriz_convergente": [
+            1.2,
+            1.2,
+            -5.0
+        ],
+        "gibbs_final_kcal_mol": -5.0
+    }
+]

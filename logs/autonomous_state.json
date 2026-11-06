@@ -1,0 +1,13 @@
+[
+    {
+        "timestamp": 1793640299.1510468,
+        "estado_registros": {
+            "eje_x_ccng1": 1.548,
+            "eje_y_pastel": 0.930233,
+            "eje_z_entropia": 1.2,
+            "frecuencia_theremin_hz": 1096.78,
+            "estado_homeostasis": "COMPLETA"
+        },
+        "verificacion_etica": "aa79bd4109b20765e82737b3482b6d9696de4bac7f7905df6b0df895085c5903"
+    }
+]

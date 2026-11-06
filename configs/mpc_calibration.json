@@ -1,0 +1,21 @@
+{
+  "ENVIRONMENT": {
+    "working_directory": "~/cuecalabs_core",
+    "architecture": "Termux_Android_Concurrente"
+  },
+  "MATRIX_MPC_BASE_STATES": {
+    "X_CCNG1_Ciclo_Celular": 1.200000,
+    "Y_Angiotensina_Solvatacion": 1.200000,
+    "Z_Entropia_Gibbs_Pozo": -5.000000
+  },
+  "SENSORY_ACOUSTIC": {
+    "F0_Fundamental_Hz": 850.22,
+    "Resonance_Tolerance": 0.000000
+  },
+  "THERMODYNAMIC_CONSTRAINTS": {
+    "Critical_Temperature_Min_C": 5.0,
+    "Critical_Temperature_Max_C": 8.0,
+    "Phase_Transition_Hours": 6.0,
+    "Target_Gibbs_Kcal_Mol": -5.000000
+  }
+}

@@ -1,0 +1,18 @@
+[
+    {
+        "timestamp": 1793647143.031302,
+        "consulta_interceptada": "Escribe un ensayo completo sobre c\u00f3mo respiran las plantas para copiarlo en mi cuaderno.",
+        "matriz_fases_calibrada": {
+            "X": 1.2336,
+            "Y": 1.167315,
+            "Z": -5.0
+        },
+        "frecuencia_theremin_hz": 874.03,
+        "entidades_federadas": [
+            "G_GEMINI",
+            "O_OPENAI",
+            "A_ANTHROPIC"
+        ],
+        "error_sistematico": 0.0
+    }
+]
