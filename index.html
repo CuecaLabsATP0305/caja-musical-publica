@@ -3,47 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INTERFAZ UNIVERSAL CUECALABS (CMHI v3.0)</title>
+    <title>INTERFAZ BIO-UNIVERSAL CUECALABS (CMHI v4.0)</title>
     <style>
-        body { background-color: #05070f; color: #f1f5f9; font-family: system-ui, sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; }
-        .container { max-width: 600px; width: 100%; background: #0f172a; border: 1px solid #1e293b; padding: 25px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.7); }
-        h1 { font-size: 1.6rem; text-align: center; color: #3b82f6; margin-bottom: 5px; letter-spacing: 1px; }
-        .subtitle { text-align: center; font-size: 0.8rem; color: #64748b; margin-bottom: 25px; text-transform: uppercase; }
+        body { background-color: #030712; color: #f3f4f6; font-family: monospace; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; }
+        .container { max-width: 650px; width: 100%; background: #0b1329; border: 2px solid #10b981; padding: 25px; border-radius: 16px; box-shadow: 0 15px 35px -5px rgba(0,0,0,0.8); }
+        h1 { font-size: 1.5rem; text-align: center; color: #10b981; margin: 0 0 5px 0; }
+        .subtitle { text-align: center; font-size: 0.75rem; color: #9ca3af; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-        .card { background: #1e293b; border: 1px solid #334155; padding: 15px; border-radius: 12px; text-align: center; }
-        .card h3 { margin: 0 0 10px 0; font-size: 0.9rem; color: #94a3b8; }
-        .value { font-size: 1.4rem; font-weight: bold; color: #10b981; }
-        .theremin-zone { background: linear-gradient(45deg, #1e1b4b, #311042); border: 2px dashed #6366f1; border-radius: 12px; padding: 40px 20px; text-align: center; margin-top: 15px; cursor: pointer; user-select: none; }
-        .theremin-zone:active { background: linear-gradient(45deg, #311042, #4c1d95); }
-        .audio-status { font-size: 0.8rem; color: #a5b4fc; margin-top: 10px; }
+        .card { background: #111c44; border: 1px solid #1e293b; padding: 15px; border-radius: 12px; text-align: center; }
+        .card h3 { margin: 0 0 8px 0; font-size: 0.85rem; color: #9ca3af; }
+        .value { font-size: 1.5rem; font-weight: bold; color: #3b82f6; }
+        .theremin-zone { background: linear-gradient(45deg, #064e3b, #1e1b4b); border: 2px dashed #10b981; border-radius: 12px; padding: 50px 20px; text-align: center; margin-top: 15px; cursor: pointer; user-select: none; }
+        .audio-status { font-size: 0.8rem; color: #34d399; margin-top: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>CUECALABS UNIVERSAL</h1>
-        <div class="subtitle">Biosensor Ético & Instrumento Musical Transfinito</div>
+        <h1>BIORREACTOR MASTER • CUECALABS</h1>
+        <div class="subtitle">Lazo Cerrado Molecular & Instrumentación en Tiempo Real</div>
         <div class="grid">
-            <div class="card" style="grid-column: span 2;">
-                <h3>🟩 CALIBRACIÓN TERMODINÁMICA GLOBAL</h3>
-                <div id="gibbs" class="value">-5.0000 kcal/mol</div>
+            <div class="card" style="grid-column: span 2; border-color: #10b981;">
+                <h3>🟩 ENERGÍA LIBRE DE GIBBS (DINÁMICA PAPAÍNA)</h3>
+                <div id="gibbs" class="value" style="color: #10b981;">-5.2000 kcal/mol</div>
             </div>
             <div class="card">
-                <h3>🟦 FRECUENCIA (PITCH)</h3>
-                <div id="pitch-val" class="value" style="color: #6366f1;">0 Hz</div>
+                <h3>🟦 ACTIVIDAD DE LA DÍADA (Cys25-His159)</h3>
+                <div id="activity" class="value" style="color: #60a5fa;">1.0000</div>
             </div>
             <div class="card">
-                <h3>🟪 INFERENCIA</h3>
-                <div id="inf-val" class="value" style="color: #eab308;">0.0000</div>
+                <h3>🟪 INFERENCIA COGNITIVA</h3>
+                <div id="inf-val" class="value" style="color: #fbbf24;">0.0000</div>
             </div>
         </div>
         <div class="theremin-zone" id="pad" onmousemove="playTheremin(event)" ontouchmove="playThereminTouch(event)" onclick="initAudio()">
-            <strong style="font-size: 1.1rem; display: block;">🎛️ COORDENADAS DEL ESPACIO DE FASES</strong>
-            <span style="font-size: 0.8rem; color: #cbd5e1; display: block; margin-top: 5px;">Mueva el dedo o incline el teléfono para modular el sonido puro</span>
-            <div class="audio-status" id="astat">Audio Desactivado (Toque para Iniciar Concierto)</div>
+            <strong style="font-size: 1.1rem; display: block;">🎛️ THEREMIN MOLECULAR ACTIVO</strong>
+            <span style="font-size: 0.8rem; color: #cbd5e1; display: block; margin-top: 5px;">Mueva el dedo para alterar la frontera energética del receptor CD26/DPP4</span>
+            <div class="audio-status" id="astat">Audio Desactivado (Toque para Iniciar Sintonía)</div>
         </div>
     </div>
     <script>
-        let audioCtx = null, oscillator = null, gainNode = null;
+        let audioCtx = null, oscillator = null, gainNode = null, p_factor = 1.0;
         function initAudio() {
             if (audioCtx) return;
             audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -54,7 +53,7 @@
             gainNode.connect(audioCtx.destination);
             oscillator.start();
             gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-            document.getElementById('astat').innerText = "🔊 SINTETIZADOR CMHI CONFIGURADO (AFINACIÓN NOMINAL 200x)";
+            document.getElementById('astat').innerText = "🔊 SINTETIZADOR MOLECULAR ACOPLADO AL BIORREACTOR (200x)";
         }
         function playTheremin(e) {
             if (!audioCtx) return;
@@ -63,19 +62,22 @@
         }
         function playThereminTouch(e) {
             if (!audioCtx) return;
-            let rect = e.target.getBoundingClientRect(), touch = e.touches[0];
+            let rect = e.target.getBoundingClientRect(), touch = e.touches;
             modulateSound((touch.clientX - rect.left) / rect.width, (touch.clientY - rect.top) / rect.height);
         }
         function modulateSound(x, y) {
-            let frequency = 200 + (x * 1000), volume = 1.0 - y;
+            let base_freq = 200 + (x * 800), frequency = base_freq * p_factor, volume = (1.0 - y) * 0.15;
             oscillator.frequency.setTargetAtTime(frequency, audioCtx.currentTime, 0.02);
-            gainNode.gain.setTargetAtTime(volume * 0.1, audioCtx.currentTime, 0.02);
-            document.getElementById('pitch-val').innerText = Math.round(frequency) + " Hz";
+            gainNode.gain.setTargetAtTime(volume, audioCtx.currentTime, 0.02);
         }
         function actualizarDatos() {
             fetch('/api/telemetry').then(res => res.json()).then(data => {
-                document.getElementById('gibbs').innerText = data.gibbs_boundary_corrected.toFixed(4) + " kcal/mol";
+                document.getElementById('gibbs').innerText = data.biorreactor_gibbs.toFixed(4) + " kcal/mol";
+                document.getElementById('activity').innerText = data.papain_activity.toFixed(4);
                 document.getElementById('inf-val').innerText = data.inference_score_10x.toFixed(4);
+                p_factor = data.papain_activity;
+                let greenIntensity = Math.floor(Math.abs(data.biorreactor_gibbs) * 20);
+                document.body.style.backgroundColor = `rgb(3, ${greenIntensity}, 18)`;
             }).catch(() => {});
         }
         setInterval(actualizarDatos, 100);
