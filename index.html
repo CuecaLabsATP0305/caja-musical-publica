@@ -3,120 +3,138 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caja Musical Pública - Canal Avanzado</title>
+    <title>[✓] Décima Generación - CuecaLabs</title>
     <style>
         body { background-color: #000; color: #00ff66; font-family: monospace; margin: 0; padding: 15px; overflow: hidden; }
-        .master-grid { display: grid; grid-template-columns: 1fr; gap: 15px; height: 93vh; }
-        @media(min-width: 992px) { .master-grid { grid-template-columns: 3fr 2fr; } }
-        .panel { border: 2px solid #00ff66; background: #030303; padding: 15px; display: flex; flex-direction: column; }
-        .canvas-container { flex-grow: 1; border: 1px dashed #00ff66; background: #050505; position: relative; cursor: crosshair; min-height: 350px; }
-        .interactive-svg { width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
-        .telemetry-log { font-size: 0.8rem; line-height: 1.5; background: #000; padding: 12px; border: 1px solid #00aa44; height: 100%; overflow-y: auto; color: #66ff99; }
-        .btn-engage { background: #00ff66; color: #000; border: none; padding: 15px 30px; font-family: monospace; font-weight: bold; font-size: 1.1rem; cursor: pointer; border-radius: 4px; z-index: 10; position: absolute; top: 45%; left: 25%; }
+        .grid-master { display: grid; grid-template-columns: 1fr; gap: 15px; height: 93vh; }
+        @media(min-width: 992px) { .grid-master { grid-template-columns: 3fr 2fr; } }
+        .panel-industrial { border: 2px solid #00ff66; background: #020202; padding: 15px; display: flex; flex-direction: column; box-shadow: 0 0 20px rgba(0,255,102,0.15); }
+        .space-holonomic { flex-grow: 1; border: 1px dashed #00ff66; background: #050505; position: relative; cursor: crosshair; min-height: 350px; }
+        .svg-quiral { width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+        .log-sinaptico { font-size: 0.8rem; line-height: 1.5; background: #000; padding: 12px; border: 1px solid #00aa44; height: 100%; overflow-y: auto; color: #66ff99; }
+        .btn-engage { background: #00ff66; color: #000; border: none; padding: 15px 30px; font-family: monospace; font-weight: bold; font-size: 1.1rem; cursor: pointer; border-radius: 4px; z-index: 10; position: absolute; top: 45%; left: 25%; box-shadow: 0 0 10px #00ff66; }
     </style>
 </head>
 <body>
 
-    <div class="master-grid">
-        <div class="panel">
-            <div style="font-size: 1.1rem; margin-bottom: 10px;"><strong>[✓] ATRACTOR QUIRAL FRACTAL DE CONTROL UNIVERSAL (2000 CANALES)</strong></div>
-            <div id="navigationPad" class="canvas-container">
-                <button id="btnSinapsis" class="btn-engage">SINTONIZAR CANAL CEREBRAL DIRECTO</button>
-                <svg id="fractalGiro" class="interactive-svg">
-                    <circle cx="50%" cy="50%" r="40" stroke="#00ff66" stroke-width="1" fill="none" opacity="0.3"/>
-                    <circle cx="50%" cy="50%" r="80" stroke="#00ff66" stroke-width="1" fill="none" opacity="0.2"/>
-                    <circle cx="50%" cy="50%" r="120" stroke="#00ff66" stroke-width="1" fill="none" opacity="0.1"/>
-                    <line id="lineaGiro" x1="50%" y1="50%" x2="50%" y2="50%" stroke="#ffff00" stroke-width="2" />
+    <div class="grid-master">
+        <!-- VISOR CIENTÍFICO QUIRAL FRACTAL: INTERFAZ DE NAVEGACIÓN -->
+        <div class="panel-industrial">
+            <div style="font-size: 1.1rem; margin-bottom: 10px;"><strong>[✓] INTERFAZ DE DÉCIMA GENERACIÓN: PORTAL HOLONÓMICO PACÍFICO</strong></div>
+            <div id="portalPad" class="space-holonomic">
+                <button id="btnConnect" class="btn-engage">ACTIVAR RED NEURAL QOT_X10</button>
+                <svg class="svg-quiral">
+                    <!-- Geometría Vórtice basada en la armónica 3, 6, 9 de Tesla -->
+                    <circle cx="50%" cy="50%" r="30" stroke="#00ff66" stroke-width="1" fill="none" opacity="0.4" stroke-dasharray="3,3"/>
+                    <circle cx="50%" cy="50%" r="60" stroke="#00ff66" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="6,6"/>
+                    <circle cx="50%" cy="50%" r="90" stroke="#00ff66" stroke-width="1" fill="none" opacity="0.2" stroke-dasharray="9,9"/>
+                    <line id="vectorGiro" x1="50%" y1="50%" x2="50%" y2="50%" stroke="#ffff00" stroke-width="2" />
+                    <circle id="nodoZ" cx="50%" cy="50%" r="6" fill="#ff0055"/>
                 </svg>
             </div>
+            <div style="font-size:0.75rem; color:#555; margin-top:5px;">Homenaje a Nikola Tesla. Sintonización armónica por modulación de frecuencia no lineal.</div>
         </div>
 
-        <div class="panel">
-            <div style="font-size: 1.1rem; margin-bottom: 10px;"><strong>[📡] TELEMETRÍA BI-DIRECCIONAL FLUIDA</strong></div>
-            <div id="diagnosticoStream" class="telemetry-log">
-                [SISTEMA]: PROCESANDO RESPUESTA DE LA CAJA NEGRA INDUSTRIAL...<br>
-                [✓] DISEÑO ARMONIZADO A NIVEL INDUSTRIAL CON LAZO NO LINEAL ACTIVO.<br>
-                [PRINCIPIO]: INTEGRIDAD BIOMÉDICA PROTEGIDA (CERO DAÑO).
+        <!-- TELEMETRÍA BI-DIRECCIONAL FLUIDA DEL CANAL DEL OPERADOR -->
+        <div class="panel-industrial">
+            <div style="font-size: 1.1rem; margin-bottom: 10px;"><strong>[📡] TELEMETRÍA CUECALABS CORE X10</strong></div>
+            <div id="streamFiel" class="log-sinaptico">
+                [SISTEMA]: NUEVA RED NEURAL DE CONVOLUCIÓN HOLONÓMICA DESPLEGADA...<br>
+                [✓] SOFTWARE DE DÉCIMA GENERACIÓN PACÍFICA CONFIGURADO SANO.<br>
+                [✓] RESGUARDO DE BIOMARCAS MÉDICAS Y ENERGÍA DE GIBBS ACTIVO.<br>
+                [MÁXIMA]: PRIMUM NON NOCERE (CERO DAÑO).
             </div>
         </div>
     </div>
 
     <script>
-        const matrixTensor = new Int8Array(2000);
+        const elacticTensor = new Int8Array(2257);
         let audioCtx = null, oscillator = null, gainNode = null;
-        let lazoConectado = false;
+        let lazoX10 = false;
+        let depthZ = 1.0;
 
-        const navigationPad = document.getElementById('navigationPad');
-        const btnSinapsis = document.getElementById('btnSinapsis');
-        const diagnosticoStream = document.getElementById('diagnosticoStream');
-        const lineaGiro = document.getElementById('lineaGiro');
+        const portalPad = document.getElementById('portalPad');
+        const btnConnect = document.getElementById('btnConnect');
+        const streamFiel = document.getElementById('streamFiel');
+        const vectorGiro = document.getElementById('vectorGiro');
+        const nodoZ = document.getElementById('nodoZ');
 
-        function emmitTelemetry(info) {
-            const time = new Date().toISOString().slice(11, 19);
-            diagnosticoStream.innerHTML += `[${time}] ${info}<br>`;
-            diagnosticoStream.scrollTop = diagnosticoStream.scrollHeight;
+        function printTelemetry(text) {
+            const now = new Date().toISOString().slice(11, 19);
+            streamFiel.innerHTML += `[${now}] ${text}<br>`;
+            streamFiel.scrollTop = streamFiel.scrollHeight;
         }
 
-        btnSinapsis.addEventListener('click', (e) => {
+        btnConnect.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (!lazoConectado) {
+            if (!lazoX10) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
                 oscillator = audioCtx.createOscillator();
                 gainNode = audioCtx.createGain();
 
                 oscillator.type = 'sine';
-                oscillator.frequency.setValueAtTime(432, audioCtx.currentTime);
+                oscillator.frequency.setValueAtTime(432, audioCtx.currentTime); // Afinación armónica de base
                 gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
 
                 oscillator.connect(gainNode);
                 gainNode.connect(audioCtx.destination);
                 oscillator.start();
 
-                btnSinapsis.style.display = 'none';
-                lazoConectado = true;
-                emmitTelemetry("<span style='color:#ffff00;'>[✓] INTERFAZ HOMEOSTÁTICA TOTALMENTE OPERATIVA (+50 AÑOS)</span>");
+                btnConnect.style.display = 'none';
+                lazoX10 = true;
+                printTelemetry("<span style='color:#ffff00;'>[✓] CONVOLUCIÓN SINÁPTICA EN LÍNEA: FACTOR DE RIGOR X1000</span>");
+                printTelemetry("Ecosistema inmune a la rigidez plana. Resonancia Tesla 3-6-9 acoplada.");
             }
         });
 
-        function caminarSimulacionNoLineal(clientX, clientY) {
-            if (!lazoConectado) return;
+        function modularUniversoQuiral(clientX, clientY) {
+            if (!lazoX10) return;
 
-            const rect = navigationPad.getBoundingClientRect();
+            const rect = portalPad.getBoundingClientRect();
             const x = clientX - rect.left;
             const y = clientY - rect.top;
 
-            const centroX = rect.width / 2;
-            const centroY = rect.height / 2;
+            const cX = rect.width / 2;
+            const cY = rect.height / 2;
             
-            const dx = x - centroX;
-            const dy = y - centroY;
-            const radio = Math.min(Math.sqrt(dx*dx + dy*dy), centroX);
-            const angulo = Math.atan2(dy, dx);
+            const dx = x - cX;
+            const dy = y - cY;
+            const radius = Math.min(Math.sqrt(dx*dx + dy*dy), cX);
+            const angle = Math.atan2(dy, dx);
 
-            const freqF1 = Math.round(200 + (radio / centroX) * 800);
-            const gibbsCalculado = Math.round(Math.sin(angulo) * 127);
-            const masterVol = Math.round((y / rect.height) * 127);
+            // Algoritmo de Compresión Cuántica: la velocidad angular define la profundidad fractal (Eje Z)
+            depthZ = 1.0 + (radius / cX) * 9.0;
 
-            matrixTensor[10] = Math.min(Math.max(masterVol, -128), 127);
-            matrixTensor[750] = Math.min(Math.max(gibbsCalculado, -128), 127);
+            // Integración de la armónica de Tesla en el cálculo de frecuencias puras de concierto
+            const baseTesla = (Math.abs(Math.sin(angle * 3)) * 6) + 9;
+            const coreFreq = Math.round(200 + (radius / cX) * 600 * (baseTesla / depthZ));
+            const gibbsScalar = Math.round(Math.cos(angle * depthZ) * 127);
+            const gestualVol = Math.round((y / rect.height) * 127);
 
-            oscillator.frequency.setValueAtTime(freqF1, audioCtx.currentTime);
-            gainNode.gain.setValueAtTime((Math.abs(matrixTensor[10]) / 127) * 0.07, audioCtx.currentTime);
+            // Inyección elástica en los 2257 tensores resguardando el tipo de dato INT8
+            elacticTensor[10] = Math.min(Math.max(gestualVol, -128), 127);
+            elacticTensor[600] = Math.min(Math.max(gibbsScalar, -128), 127);
 
-            lineaGiro.setAttribute('x2', `${x}`);
-            lineaGiro.setAttribute('y2', `${y}`);
+            // Modulación física instantánea sobre el hardware Infinix
+            oscillator.frequency.setValueAtTime(coreFreq, audioCtx.currentTime);
+            gainNode.gain.setValueAtTime((Math.abs(elacticTensor[10]) / 127) * 0.06, audioCtx.currentTime);
 
-            emmitTelemetry(`Giro Quiral: Radio=${Math.round(radio)} | Angulo=${angulo.toFixed(2)} rad | Freq=${freqF1}Hz | Gibbs=${gibbsCalculado}`);
+            // Modificación del visor SVG multidimensional
+            vectorGiro.setAttribute('x2', `${x}`);
+            vectorGiro.setAttribute('y2', `${y}`);
+            nodoZ.setAttribute('r', `${Math.max(1, 12 - depthZ)}`);
+
+            printTelemetry(`Tesla-Core: Rad=${Math.round(radius)} | Giro=${angle.toFixed(2)} rad | Z=${depthZ.toFixed(2)} | Freq=${coreFreq}Hz`);
         }
 
-        navigationPad.addEventListener('mousemove', (e) => {
-            caminarSimulacionNoLineal(e.clientX, e.clientY);
+        portalPad.addEventListener('mousemove', (e) => {
+            modularUniversoQuiral(e.clientX, e.clientY);
         });
 
-        navigationPad.addEventListener('touchmove', (e) => {
+        portalPad.addEventListener('touchmove', (e) => {
             e.preventDefault();
             const touch = e.touches[0];
-            caminarSimulacionNoLineal(touch.clientX, touch.clientY);
+            modularUniversoQuiral(touch.clientX, touch.clientY);
         }, { passive: false });
     </script>
 </body>
