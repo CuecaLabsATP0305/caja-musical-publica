@@ -1,0 +1,194 @@
+[
+    {
+        "timestamp": 1793940805.8202455,
+        "garante": "cuecalabs ATP 0305",
+        "cie10_mapped": "U07",
+        "sensor_vector": [
+            0.5773405326744688,
+            0.5771817946369117,
+            0.5775284280962565
+        ],
+        "gibbs_boundary_corrected": -7.49039478044501,
+        "status": "NOMINAL_ETHICAL_FLOW"
+    },
+    {
+        "timestamp": 1793940970.1434736,
+        "garante": "cuecalabs ATP 0305",
+        "cie10_mapped": "U07",
+        "sensor_vector": [
+            0.5777823932895151,
+            0.5766145936576508,
+            0.5776531107629499
+        ],
+        "gibbs_boundary_corrected": -7.49039478044501,
+        "status": "NOMINAL_ETHICAL_FLOW"
+    },
+    {
+        "timestamp": 1793941393.8546767,
+        "garante": "cuecalabs ATP 0305",
+        "cie10_mapped": "I10",
+        "sensor_vector": [
+            0.5776027438734309,
+            0.5772391631919142,
+            0.5772088172713871
+        ],
+        "gibbs_boundary_corrected": -6.916680068598226,
+        "neural_weights_adapted": [
+            0.9304667949049193,
+            -0.2758468063831462,
+            0.2411225476477453
+        ],
+        "inference_score": 0.5173886546796477,
+        "status": "NOMINAL_ETHICAL_ADAPTIVE_FLOW"
+    },
+    {
+        "timestamp": 1793941393.858309,
+        "garante": "cuecalabs ATP 0305",
+        "cie10_mapped": "I10",
+        "sensor_vector": [
+            0.5770820178113656,
+            0.5779368243464537,
+            0.5770315171388437
+        ],
+        "gibbs_boundary_corrected": -6.1847555752098415,
+        "neural_weights_adapted": [
+            0.9350104531830359,
+            -0.23236227833213285,
+            0.26788658802713267
+        ],
+        "inference_score": 0.5598660060708509,
+        "status": "NOMINAL_ETHICAL_ADAPTIVE_FLOW"
+    },
+    {
+        "timestamp": 1793941394.860375,
+        "garante": "cuecalabs ATP 0305",
+        "cie10_mapped": "E11",
+        "sensor_vector": [
+            0.5764678934881716,
+            0.5778408914907931,
+            0.5777410076209625
+        ],
+        "gibbs_boundary_corrected": -5.90695331533044,
+        "neural_weights_adapted": [
+            0.9370079244407148,
+            -0.19167253748032267,
+            0.29202360847921904
+        ],
+        "inference_score": 0.598112768264024,
+        "status": "NOMINAL_ETHICAL_ADAPTIVE_FLOW"
+    },
+    {
+        "timestamp": 1793941395.862513,
+        "garante": "cuecalabs ATP 0305",
+        "cie10_mapped": "U07",
+        "sensor_vector": [
+            0.5773721338818019,
+            0.577073873457831,
+            0.5776046775932472
+        ],
+        "gibbs_boundary_corrected": -6.345588462508442,
+        "neural_weights_adapted": [
+            0.9368668998791128,
+            -0.1491967707614889,
+            0.3162605500269037
+        ],
+        "inference_score": 0.637496855769452,
+        "status": "NOMINAL_ETHICAL_ADAPTIVE_FLOW"
+    },
+    {
+        "timestamp": 1793941849.1516154,
+        "garante": "cuecalabs ATP 0305",
+        "cie10_mapped": "E11",
+        "sensor_vector": [
+            0.5769011015964458,
+            0.5780458912734416,
+            0.577103168027295
+        ],
+        "gibbs_boundary_corrected": -6.8939340544048315,
+        "neural_weights_adapted": [
+            0.9304452760353995,
+            -0.2760627477855419,
+            0.24095839388794565
+        ],
+        "inference_score": 0.5162558201044445,
+        "theremin_state": {
+            "status": "CONCERT_READY"
+        },
+        "status": "NOMINAL_ETHICAL_ADAPTIVE_FLOW"
+    },
+    {
+        "timestamp": 1793941849.6600468,
+        "garante": "cuecalabs ATP 0305",
+        "cie10_mapped": "I10",
+        "sensor_vector": [
+            0.5767060334667643,
+            0.5773167539402814,
+            0.5780272628270569
+        ],
+        "gibbs_boundary_corrected": -6.1847555752098415,
+        "neural_weights_adapted": [
+            0.9349763666879666,
+            -0.23261067108013417,
+            0.2677899726141422
+        ],
+        "inference_score": 0.5597063791406157,
+        "theremin_state": {
+            "status": "CONCERT_READY"
+        },
+        "status": "NOMINAL_ETHICAL_ADAPTIVE_FLOW"
+    },
+    {
+        "timestamp": 1793941851.1708162,
+        "garante": "cuecalabs ATP 0305",
+        "cie10_mapped": "E11",
+        "sensor_vector": [
+            0.5778706231711405,
+            0.5769397770199123,
+            0.5772400164199113
+        ],
+        "gibbs_boundary_corrected": -5.90695331533044,
+        "neural_weights_adapted": [
+            0.9369946465765512,
+            -0.1919518007435745,
+            0.2918827478222193
+        ],
+        "inference_score": 0.5992034533512324,
+        "theremin_state": {
+            "status": "CONCERT_READY"
+        },
+        "status": "NOMINAL_ETHICAL_ADAPTIVE_FLOW"
+    },
+    {
+        "timestamp": 1793942359.6097026,
+        "garante": "cuecalabs ATP 0305",
+        "cie10_mapped": "U07",
+        "sensor_vector": [
+            0.5773684058267398,
+            0.576748657086895,
+            0.5779331366949072
+        ],
+        "gibbs_boundary_corrected": -7.3392414990749195,
+        "neural_weights_int8": [
+            119,
+            -48,
+            24
+        ],
+        "inference_score_10x": -0.0017547607421875,
+        "binary_pack_length_bytes": 27,
+        "status": "NOMINAL_ETHICAL_10X_FLOW"
+    },
+    {
+        "timestamp_registro_forense": 1793942518.1550786,
+        "garante_ingenieria": "cuecalabs ATP 0305",
+        "normativa_aplicada": "ISO/IEC 62304 Clase C / Grado E",
+        "optimizaciones_consolidadas": [
+            "Precision temporal sub-milisegundo float64",
+            "Vectorizacion universal NumPy Ufuncs O(1)",
+            "Lector de hardware HIL en memoria Termux-API",
+            "Inferencia de red lineal cuantizada INT8",
+            "Compactacion binaria de transporte a 27 Bytes"
+        ],
+        "metatronic_status": "NOMINAL_ETHICAL_10X_FLOW",
+        "gibbs_final_stability_kcal_mol": -7.33924
+    }
+]
