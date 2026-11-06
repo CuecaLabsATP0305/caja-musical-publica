@@ -1,0 +1,18 @@
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "id": "https://doi.org.298895fbd544873d0a7b22c9cc7e76f243f3bf98",
+    "name": "Caja Musical Pública - Calibrador Homeostático Universal",
+    "version": "V0305-Core",
+    "license": "https://opensource.org",
+    "author": "CuecaLabsATP0305",
+    "sdg_alignment": [
+        "SDG-4",
+        "SDG-9"
+    ],
+    "biophysical_anchors": {
+        "pdb": "1X70",
+        "pubmed": "1497203",
+        "receptor": "PAR2"
+    }
+}
