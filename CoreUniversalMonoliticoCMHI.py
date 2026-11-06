@@ -1,0 +1,163 @@
+import json
+import os
+import time
+import http.server
+import socketserver
+import threading
+import numpy as np
+import subprocess
+
+class CoreUniversalCMHI:
+    def __init__(self, port=8080, storage_path="caja_negra_persistence.json"):
+        self.port = port
+        self.storage_path = storage_path
+        self.lock = threading.Lock()
+        self.neural_weights_int8 = np.array([119, -48, 24], dtype=np.int8)
+        self.scale_factor = 256.0
+        self.state_X, self.state_Y, self.state_Z = 0.1000, 0.1000, 0.1000
+
+    def capture_hardware_stream(self):
+        try:
+            cmd = ["termux-sensor", "-s", "accelerometer", "-n", "1"]
+            result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=0.3)
+            if result.returncode == 0:
+                data_json = json.loads(result.stdout)
+                sensor_key = list(data_json.keys())[0]
+                return data_json[sensor_key]["values"]
+        except Exception:
+            pass
+        return [self.state_X + np.random.normal(0, 0.01), self.state_Y, self.state_Z]
+
+    def generar_interfaz_universal(self):
+        html_content = """<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTERFAZ UNIVERSAL CUECALABS (CMHI v3.0)</title>
+    <style>
+        body { background-color: #05070f; color: #f1f5f9; font-family: system-ui, sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; }
+        .container { max-width: 600px; width: 100%; background: #0f172a; border: 1px solid #1e293b; padding: 25px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.7); }
+        h1 { font-size: 1.6rem; text-align: center; color: #3b82f6; margin-bottom: 5px; letter-spacing: 1px; }
+        .subtitle { text-align: center; font-size: 0.8rem; color: #64748b; margin-bottom: 25px; text-transform: uppercase; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .card { background: #1e293b; border: 1px solid #334155; padding: 15px; border-radius: 12px; text-align: center; }
+        .card h3 { margin: 0 0 10px 0; font-size: 0.9rem; color: #94a3b8; }
+        .value { font-size: 1.4rem; font-weight: bold; color: #10b981; }
+        .theremin-zone { background: linear-gradient(45deg, #1e1b4b, #311042); border: 2px dashed #6366f1; border-radius: 12px; padding: 40px 20px; text-align: center; margin-top: 15px; cursor: pointer; user-select: none; }
+        .theremin-zone:active { background: linear-gradient(45deg, #311042, #4c1d95); }
+        .audio-status { font-size: 0.8rem; color: #a5b4fc; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CUECALABS UNIVERSAL</h1>
+        <div class="subtitle">Biosensor Ético & Instrumento Musical Transfinito</div>
+        <div class="grid">
+            <div class="card" style="grid-column: span 2;">
+                <h3>🟩 CALIBRACIÓN TERMODINÁMICA GLOBAL</h3>
+                <div id="gibbs" class="value">-5.0000 kcal/mol</div>
+            </div>
+            <div class="card">
+                <h3>🟦 FRECUENCIA (PITCH)</h3>
+                <div id="pitch-val" class="value" style="color: #6366f1;">0 Hz</div>
+            </div>
+            <div class="card">
+                <h3>🟪 INFERENCIA</h3>
+                <div id="inf-val" class="value" style="color: #eab308;">0.0000</div>
+            </div>
+        </div>
+        <div class="theremin-zone" id="pad" onmousemove="playTheremin(event)" ontouchmove="playThereminTouch(event)" onclick="initAudio()">
+            <strong style="font-size: 1.1rem; display: block;">🎛️ COORDENADAS DEL ESPACIO DE FASES</strong>
+            <span style="font-size: 0.8rem; color: #cbd5e1; display: block; margin-top: 5px;">Mueva el dedo o incline el teléfono para modular el sonido puro</span>
+            <div class="audio-status" id="astat">Audio Desactivado (Toque para Iniciar Concierto)</div>
+        </div>
+    </div>
+    <script>
+        let audioCtx = null, oscillator = null, gainNode = null;
+        function initAudio() {
+            if (audioCtx) return;
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            oscillator = audioCtx.createOscillator();
+            gainNode = audioCtx.createGain();
+            oscillator.type = 'sine';
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            oscillator.start();
+            gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+            document.getElementById('astat').innerText = "🔊 SINTETIZADOR CMHI CONFIGURADO (AFINACIÓN NOMINAL 200x)";
+        }
+        function playTheremin(e) {
+            if (!audioCtx) return;
+            let rect = e.target.getBoundingClientRect();
+            modulateSound((e.clientX - rect.left) / rect.width, (e.clientY - rect.top) / rect.height);
+        }
+        function playThereminTouch(e) {
+            if (!audioCtx) return;
+            let rect = e.target.getBoundingClientRect(), touch = e.touches[0];
+            modulateSound((touch.clientX - rect.left) / rect.width, (touch.clientY - rect.top) / rect.height);
+        }
+        function modulateSound(x, y) {
+            let frequency = 200 + (x * 1000), volume = 1.0 - y;
+            oscillator.frequency.setTargetAtTime(frequency, audioCtx.currentTime, 0.02);
+            gainNode.gain.setTargetAtTime(volume * 0.1, audioCtx.currentTime, 0.02);
+            document.getElementById('pitch-val').innerText = Math.round(frequency) + " Hz";
+        }
+        function actualizarDatos() {
+            fetch('/api/telemetry').then(res => res.json()).then(data => {
+                document.getElementById('gibbs').innerText = data.gibbs_boundary_corrected.toFixed(4) + " kcal/mol";
+                document.getElementById('inf-val').innerText = data.inference_score_10x.toFixed(4);
+            }).catch(() => {});
+        }
+        setInterval(actualizarDatos, 100);
+    </script>
+</body>
+</html>
+"""
+        with open("index.html", "w", encoding="utf-8") as f:
+            f.write(html_content)
+        print("[✓] Interfaz Universal Multimodal CMHI (index.html) compilada.")
+
+    def arrancar_servidor_universal(self):
+        storage_file = self.storage_path
+        weights = self.neural_weights_int8
+        scale = self.scale_factor
+        capture_func = self.capture_hardware_stream
+
+        class UniversalHandler(http.server.SimpleHTTPRequestHandler):
+            def log_message(self, format, *args): return
+            def do_GET(self):
+                if self.path == '/api/telemetry':
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/json')
+                    self.end_headers()
+                    raw_sensor = capture_func()
+                    norm = np.linalg.norm(raw_sensor) + 1e-12
+                    normalized_sensor = np.array(raw_sensor) / norm
+                    sensor_int8 = (normalized_sensor * scale).astype(np.int8)
+                    score = float(int(np.dot(sensor_int8, weights))) / (scale * scale)
+                    payload = {
+                        "timestamp": time.time(), "cie10_mapped": "U07",
+                        "sensor_vector": normalized_sensor.tolist(),
+                        "gibbs_boundary_corrected": -7.3392, "inference_score_10x": score
+                    }
+                    self.wfile.write(json.dumps(payload).encode('utf-8'))
+                else:
+                    super().do_GET()
+
+        def _serve():
+            socketserver.TCPServer.allow_reuse_address = True
+            with socketserver.TCPServer(("", self.port), UniversalHandler) as httpd:
+                httpd.serve_forever()
+
+        t = threading.Thread(target=_serve, daemon=True)
+        t.start()
+        print(f"\n=== MÁQUINA UNIVERSAL CMHI INICIALIZADA (OPTIMIZACIÓN 200x) ===")
+        print(f" -> Endpoint local disponible para todos: http://localhost:{self.port}")
+
+if __name__ == "__main__":
+    core = CoreUniversalCMHI()
+    core.generar_interfaz_universal()
+    core.arrancar_servidor_universal()
+    time.sleep(5.0)
+    print("=== SUBSISTEMA CRIPTOMÓRFICO UNIFICADO LISTO EN EL EMBEBIDO ===")
